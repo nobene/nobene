@@ -1,0 +1,365 @@
+@font-face {
+  font-family: 'FCM';
+  font-weight: 450 !important;
+  font-style: normal;
+  src: url('FiraCodeNerdFont-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Fawesome';
+  font-weight: 400 !important;
+  font-style: normal;
+  src: url('FontAwesome6Free-Solid.woff') format('woff');
+}
+
+
+
+body {
+  background-color: #78866b;
+  margin: 0 auto;
+  max-width: auto;
+}
+
+html, body {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: FCM !important;
+}
+
+mark {
+  font_family: Fawesome !important;
+  font-size: 32px;
+  color: #8d7b68 !important;
+  background-color: transparent !important;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body, input, button {
+/*  font-family: Georgia, Helvetica; */
+  font-size: 26px !important;
+  color: #111 !important;
+}
+
+
+h1 {
+  text-align: center;
+  background-color: #eee;
+  margin-top: 28px;
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+h3 {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 5px solid #A13462;
+  text-align: center;
+  padding: 10px;
+}
+
+h3 div {
+  margin-bottom: 10px;
+}
+
+.tagline {
+  position: relative;
+  margin-top: 0;
+}
+.tagline-text {
+  vertical-align: middle;
+}
+
+.promo {
+  margin-bottom: 0;
+  font-style: italic;
+  padding: 10px;
+  background-color: #ff4020;
+  border-bottom: 5px solid #c00;
+}
+
+a {
+  font-weight: bold;
+}
+a,
+a:hover {
+  color: #6e85b7;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+pre code {
+  color: darkblue;
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+#superSecret {
+  opacity: 0.01;
+  background-color: rgb(0,0,0,0.3);
+  height: 60px;
+  width: 100%;
+  transition: 0.2s;
+  object-fit: cover;
+}
+
+#superSecret:hover {
+  animation: superSUPERSecret;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
+  background-color: rgb(0,0,0,0.1);
+}
+
+@keyframes superSUPERSecret {
+  0%{transform: rotate(3deg)}
+  50%{transform: rotate(-3deg)}
+  100%{transform: rotate(3deg)}
+}
+
+sub {
+  display: block;
+  text-align: right;
+  margin-top: -10px;
+  font-size: 11px;
+  font-style: italic;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.parent {
+  background-color: transparent; /* rgba(255, 255, 255, 0.2); */
+  margin: 10px 0;
+  padding: 4px;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 10px;
+  color: transparent;
+  border-radius: 6px;
+  border: 2px dotted #34626c;
+  margin: 5px 0;
+  display: block;
+  width: 100%;
+  font-size: 30px !important;
+}
+
+button {
+  background-color: transparent;
+  color: #78866b;
+  border: 4px double #666362;
+  border-radius: 10px;
+  padding: 12px 12px;
+  margin-left: 10px;
+  cursor: pointer;
+  outline: none;
+  font-size: 32px;
+  position: relative;
+}
+
+button:hover {
+  background-color: #78aba8;
+  color: #111;
+  border: 4px double #776b5d;
+  border-radius: 10px;
+}
+
+.gh-fork {
+  position: fixed;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+/* dragula-specific example page styles */
+.wrapper {
+  display: table;
+}
+.container {
+  display: table-cell;
+  background-color: transparent;
+  width: 20%;
+}
+.container:nth-child(odd) {
+  background-color: transparent;
+}
+/*
+ * note that styling gu-mirror directly is a bad practice because it's too generic.
+ * you're better off giving the draggable elements a unique class and styling that directly!
+ */
+.container > div,
+.gu-mirror {
+  margin: 6px;
+  padding: 10px;
+/*   background-color: #c7c8cc; */
+/*  transition: opacity 0.4s ease-in-out; */
+}
+.container > div {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  border: 2px outset #8d7b68;
+  border-radius: 6px;
+  background-color: #b2b7b6;
+  white-space: pre-wrap;
+/*  width: 19% */
+}
+.gu-mirror {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.container .ex-moved {
+  background-color: #e74c3c;
+}
+.container.ex-over {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#left-lovehandles > div,
+#right-lovehandles > div {
+  cursor: initial;
+}
+.handle {
+  padding: 0 5px;
+  margin-right: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: move;
+}
+.image-thing {
+  margin: 20px 0;
+  display: block;
+  text-align: center;
+}
+
+textarea {
+  background-color: transparent;
+  color : transparent;
+  font-size: 30px;
+  min-width: 850px;
+  height: 250px;
+  border: 2px dotted #34626c;
+  margin-left: 5%;
+}
+
+#menu > a:hover {
+  color : #6e85b7 !important;
+  text-decoration: underline;
+}
+
+#menu {
+  background-color: #b2b7b6 !important;
+  color : #8d7b68 !important;
+  border: 4px solid #34626c;
+  border-radius: 10px;
+  min-height: 200px;
+  min-width: 400px;
+  top: 2% !important;
+  left: 60%;
+  position: absolute;
+  text-align: center;
+}
+
+#menu:focus {
+  background-color: #b2b7b6 !important;
+  color : #8d7b68 !important;
+  border: 4px solid #34626c;
+  border-radius: 10px;
+  min-height: 200px;
+  min-width: 400px;
+  top: 2% !important;
+  left: 60%;
+  position: absolute;
+  z-index: 7;
+}
+
+#x {
+  top: 2%;
+  left: 90%;
+  position: absolute;
+  display: inline;
+  z-index: 10;
+}
+
+#out {
+  border: 0;
+  border-radius: 6px;
+}
+
+#out:focus {
+  background-color: #b2b7b6;
+  color : #8d7b68;
+  border: 2px solid #34626c;
+  border-radius: 6px;
+  min-height: 900px;
+  top: 2% !important;
+  left: 10%;
+  position: absolute;
+}
+
+#in {
+  height: 56px !important;
+  min-width: 14% !important;
+  max-width: 25% !important;
+  position: absolute;
+  left: 60%;
+  top: 70%;
+  color: #78866b !important;
+}
+
+#in:focus {
+  background-color: #b2b7b6 !important;
+  color : #8d7b68 !important;
+  font-size: 30px !important;
+}
+
+#enter {
+  position: absolute;
+  left: 86%;
+  top: 70%;
+  font-size: 30px;
+}
+
+#boards {
+  position: absolute;
+  left: 92%;
+  top: 70%;
+  font-size: 30px;
+}
+
+
+
+div.yell {
+  background-color: #cdc2ae !important;
+  text-align: center;
+}
+
+div.red {
+  background-color: #b2b7b6 !important;
+  color: darkred;
+  text-align: center;
+}
+
+.hid {
+  border: 0 !important;
+  color: transparent !important;
+  background-color: #78866b !important;
+}
+

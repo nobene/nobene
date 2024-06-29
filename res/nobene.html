@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+<!--    Copyright (c) 2024 Nobene authors
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<title>------</title>
+<meta charset='utf-8'>
+<link rel="icon" href="favicon.ico">
+<link href='dragula.css' rel='stylesheet' type='text/css' />
+<link href='nobene.css' rel='stylesheet' type='text/css' />
+</head>
+<body>
+<div class='superparent'>
+  <div class='parent'>
+    <div class='wrapper'>
+      <div id='1' class='container'>
+      </div>
+      <div id='2' class='container'>
+      </div>
+      <div id='3' class='container'>
+      </div>
+      <div id='4' class='container'>
+      </div>
+      <div id='5' class='container'>
+      </div>
+    </div>
+    <div id='com'>
+    <textarea id='out'></textarea>
+    <div id='menu'>
+    </div>
+    <input id='in' />
+    <button id='enter' type='button' onclick='readkb(document.getElementById("in").value);'><==</button>
+    <button id='boards' type='button' onclick='show_all_boards();'>===</button>
+    </div>
+</div>
+<script src='dragula.js'></script>
+<script src='dragbase.js'></script>
+<script src='nobene.js'></script>
+<script src='vebview.js'></script>
+<script type='text/javascript'>
+    vebview.messenger.new("example_port");
+    vebview.messenger.add_event_listener("example_port",(e)=>{console.log(e);});
+    vebview.window.set_icon("paw.png")
+    import_board("help");
+</script>
+</body>

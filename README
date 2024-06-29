@@ -1,0 +1,78 @@
+This is a minimalist desktop kanban application.
+Basic usage described in built-in "help" board.
+Just start it and see ;)
+Nobene tested on Void and Manjaro Linux ditros. Should work on any OS supported by Vebview.JS,
+ only some file paths must be adjusted in nobene.js file.
+
+Installation.
+  1) You must have https://github.com/vlang/v installed on your system.
+  Follow instructions from Vlang project.
+
+  2) You must have compiled and working https://github.com/malisipi/Vebview.JS on your system.
+  Follow README.md from their Github.
+
+  3) $ git clone https://github.com/nobene/nobene
+
+  4) $ cd nobene
+
+  5) Copy "vebview" binary from compiled Vebview.JS project to nobene main directory
+   and rename it to "nobene".
+
+  6) $ ./nobene
+
+Features.
+  Nobene is a kanban board.
+
+  On startup it loads "help" board with usage information.
+
+  You can create new board with +BoardName typed in command input field.
+  Instead of [ENTER] click on <== button.
+
+  You can load another board with >BoardName.
+
+  You can save current board with >> typed in command field and then by clicking <== .
+
+  You can add new card to the current board with +1 ( to 1st column ), +2 ( to 2nd column ) and so on...
+
+  By doubleclicks on card you can switch between 3 views : gray, yellow and hidden.
+  Card will be then shown with chosen view.
+
+  You can edit card just by clicking on it and typing/deleting new text from it
+  and then by moving pointer out of the card.
+
+  You can delete card by typing in it ????? and then moving pointer out of the card.
+
+  You can open list of all saved boards by clicking on === button.
+
+  You can close list of boards by clicking on X in the top right corner of the list.
+
+  You can clone card with +++++ typed inside of card and then you will see in command field
+  ready command like "++CardId", click on <== and card will be cloned at the bottom of column 3.
+  You can copy CardId form [OUT] textarea field at the bototm left part of the app as well, if you
+  get which card you wish to clone, paste it to command field preceded with ++ , then click <== .
+  CardId can be copied from another board, then load new target board and proceed as above to clone
+  card from 1st board to target board.
+
+  You can delete current board with /delete .
+
+  You can quit app with quit .
+
+  Nobene app has Vebview.JS' context menu with handy copy and paste items.
+
+  And of course you can drag and drop cards to new position on board.
+
+  Every time you save board, two copies saved : BoardName and BoardName-bup.
+  *-bup boards are not shown in the list, but you can load them with >BoardName-bup .
+  If you save BoardName-bup, it creates BoardName-bup-bup :)
+  So, you can load backup of backup and work on it too.
+
+Licenses.
+
+ As a whole Nobene project licensed by Apache License 2.0, See : ./LICENSE.apache2
+ "nobene" binary  and files : res/vebview.css, res/vebview.js are licensed by Apache License 2.0,
+  as they are part of Vebview.JS project. See : ./LICENSE.apache2
+ res/nobene.js, res/nobene.html files are a core part of nobene project and licensed by Apache License 2.0 See ./LICENSE.apache2
+ res/dragula.js, res/dragula.css, res/dragbase.js, res/nobene.css are licensed by MIT License See : ./license
+ res/FiraCodeNerdFont-Medium.woff file licensed by SIL OFL v1.1 License, See ./FiraCode.LICENSE
+ res/FontAwesome6Free-Solid.woff file licensed by SIL OFL v1.1 License, See ./FontAwesome.LICENSE
+

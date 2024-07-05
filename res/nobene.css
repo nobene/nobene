@@ -66,22 +66,6 @@ h3 div {
   margin-bottom: 10px;
 }
 
-.tagline {
-  position: relative;
-  margin-top: 0;
-}
-.tagline-text {
-  vertical-align: middle;
-}
-
-.promo {
-  margin-bottom: 0;
-  font-style: italic;
-  padding: 10px;
-  background-color: #ff4020;
-  border-bottom: 5px solid #c00;
-}
-
 a {
   font-weight: bold;
 }
@@ -237,17 +221,6 @@ button:hover {
 #right-lovehandles > div {
   cursor: initial;
 }
-.handle {
-  padding: 0 5px;
-  margin-right: 5px;
-  background-color: rgba(0, 0, 0, 0.4);
-  cursor: move;
-}
-.image-thing {
-  margin: 20px 0;
-  display: block;
-  text-align: center;
-}
 
 textarea {
   background-color: transparent;
@@ -301,6 +274,7 @@ textarea {
 #out {
   border: 0;
   border-radius: 6px;
+  display: block;
 }
 
 #out:focus {
@@ -316,11 +290,11 @@ textarea {
 
 #in {
   height: 56px !important;
-  min-width: 14% !important;
-  max-width: 25% !important;
+  min-width: 15% !important;
+  max-width: 26% !important;
   position: absolute;
-  left: 60%;
-  top: 70%;
+  left: 62%;
+  top: 86%;
   color: #78866b !important;
 }
 
@@ -332,15 +306,22 @@ textarea {
 
 #enter {
   position: absolute;
-  left: 86%;
-  top: 70%;
+  left: 88%;
+  top: 86%;
   font-size: 30px;
 }
 
 #boards {
   position: absolute;
+  left: 93%;
+  top: 86%;
+  font-size: 30px;
+}
+
+#toggle {
+  position: absolute;
   left: 92%;
-  top: 70%;
+  top: 76%;
   font-size: 30px;
 }
 

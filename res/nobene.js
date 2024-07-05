@@ -69,8 +69,7 @@ async function new_card(col) {
   elem.setAttributeNode(omo);
   elem.setAttributeNode(odbl);
   document.getElementById(col).appendChild(elem);
-  console.log('added new card : ' + mid);
-  document.getElementById('out').value = document.getElementById('out').value + '\n Added card : ' + mid;
+  console.log('added brand new card : ' + mid);
   save(mid);
   var result = await vebview.fs.write_file('store/flags/' + mid, '');
     if ( result == false ) {
@@ -83,6 +82,7 @@ async function set_card(col, caid) {
   var id = document.createAttribute('id');
   var cl = document.createAttribute('class');
   var cedit = document.createAttribute('contenteditable');
+  var ocm = document.createAttribute('oncontextmenu');
   var omo = document.createAttribute('onmouseout');
   var odbl = document.createAttribute('ondblclick');
   var elem = document.createElement('div');
@@ -93,6 +93,10 @@ async function set_card(col, caid) {
     var red = true;
   };
   elem.innerHTML = crd;
+  if ( crd.substring(0,3) == '==>' ) {
+    ocm.value = 'open_url("' + crd.substring(4,10) + '");'
+    elem.setAttributeNode(ocm);
+  };
   elem.setAttributeNode(cedit);
   elem.setAttributeNode(cl);
   cedit.value = 'true';
@@ -118,12 +122,11 @@ async function set_card(col, caid) {
   console.log('flag read was : ' + flag);
   document.getElementById(col).appendChild(elem);
   console.log('set new card ' + caid + ' in column : ' + col);
-  document.getElementById('out').value = document.getElementById('out').value + '\n Set card in Col ' + col + ': ' + caid;
-//  export_board();
+////  export_board();
   return;
 };
 
-async function add_old_card(mid) {
+async function clone_card(mid) {
   var id = document.createAttribute('id');
   var cl = document.createAttribute('class');
   var cedit = document.createAttribute('contenteditable');
@@ -163,18 +166,47 @@ async function add_old_card(mid) {
   console.log('flag read was : ' + flag);
   document.getElementById('3').appendChild(elem);
   console.log('add old card with new id ' + midnew + ' in Column 3');
-  document.getElementById('out').value = document.getElementById('out').value + '\n added old card : ' + mid + ' as new with id : ' + midnew;
   save(midnew);
   export_board();
   document.getElementById('in').value = '';
   return;
 };
 
+async function add_new_url_card(uid) {
+  var id = document.createAttribute('id');
+  var op = document.createAttribute('oncontextmenu');
+  var cl = document.createAttribute('class');
+  var cedit = document.createAttribute('contenteditable');
+  var omo = document.createAttribute('onmouseout');
+  var odbl = document.createAttribute('ondblclick');
+  var elem = document.createElement('div');
+  var mid = muid(19);
+  elem.setAttributeNode(cl);
+  cl.value = '';
+  elem.setAttributeNode(cedit);
+  cedit.value = 'true';
+  id.value = mid;
+  elem.setAttributeNode(id);
+  op.value = 'open_url("' + uid + '");'
+  omo.value = 'save("' + mid + '");'
+  odbl.value = 'hide("' + mid + '");'
+  elem.setAttributeNode(op);
+  elem.setAttributeNode(omo);
+  elem.setAttributeNode(odbl);
+  document.getElementById('3').appendChild(elem);
+  document.getElementById(mid).innerHTML = '==> ' + uid;
+  console.log('added new URL card : ' + mid);
+  save(mid);
+  var result = await vebview.fs.write_file('store/flags/' + mid, '');
+    if ( result == false ) {
+      console.log('flags file writing error for : ' + mid);
+    };
+  return mid;
+};
+
 async function hide_menu() {
   document.getElementById('menu').innerHTML = '';
   document.getElementById('menu').style.display = 'none';
-//  var ele = document.getElementById('menu');
-//  ele.remove();
   return;
 };
 
@@ -211,7 +243,6 @@ async function new_board(name) {
   var boards = await vebview.fs.read_dir('store/boards');
   console.log('boards dir : ' + boards);
   if ( boards.includes(name) === true ) {
-    document.getElementById('out').value = document.getElementById('out').value + '\n Board already exists : ' + name;
     console.log('Board with name : ' + name + ' already exists, can not create it !');
     return;
   };
@@ -236,7 +267,6 @@ async function new_board(name) {
     col5.removeChild(col5.firstChild);
   };
   console.log('New Board created : ' + name);
-  document.getElementById('out').value = document.getElementById('out').value + '\n New board : ' + name;
   var cid = new_card('1');
   var act = '';
   act += cid + '-';
@@ -297,6 +327,7 @@ async function delete_board() {
   if (del === false) {
     console.log('failed to delete board : ' + nam);
   };
+  import_board('help');
   return;
 };
 
@@ -339,12 +370,10 @@ async function import_board(name) {
     var c5 = bd[4].split('-');
   } catch (e) {
     if (e) {
-      document.getElementById('out').value = document.getElementById('out').value + '\n loading of board "' + name + '"failed: ' + e;
       import_board('help');
       return;
     };
   };
-  document.getElementById('out').value = document.getElementById('out').value + '\n Loaded board : ' + name;
   c1.forEach(set_column1);
   async function set_column1(card1) {
     set_card('1', card1);
@@ -420,7 +449,6 @@ async function export_board() {
   const month = monthNames[date.getMonth()];
   const year = date.getFullYear();
   const dstr = `${day}${month}${year}`;
-//  console.log(dstr);
   var res4 = await vebview.fs.write_file('store/boards/' + nm + '-' + dstr, act2);
   if ( res4 == false ) {
     console.log('actual file writing error in export : ' + nm + '-' + dstr);
@@ -451,7 +479,7 @@ async function readkb(val) {
     return;
   };
   if ( val[0] == '+' && val[1] == '+' && val.length == 21 ) {
-    add_old_card(val.substring(2,));
+    clone_card(val.substring(2,));
     console.log('added existing card with id : ' + val.substring(2,));
     return;
    };
@@ -460,6 +488,9 @@ async function readkb(val) {
     console.log('added new board with name : ' + val.substring(1,));
     return;
    };
+  if ( val[0] == '#' ) {
+    save_url(val.substring(1,));
+  };
   val2 = val.substring(1,);
   if ( val[0] === '+' ) {
     if (val2 === '1') {
@@ -487,7 +518,6 @@ async function readkb(val) {
     import_board(val.substring(1,));
   };
   document.getElementById('in').value = val;
-  document.getElementById('out').value = document.getElementById('out').value + '\n';
   console.log("val : " + val);
   val = '';
   val2 = '';
@@ -560,7 +590,28 @@ async function add_emoset() {
   elem.setAttributeNode(cl);
   document.getElementById('5').appendChild(elem);
   console.log('added emocard : ' + mid3);
-  document.getElementById('out').value = await document.getElementById('out').value + '\n Added Emoji-card : ' + mid3;
   save(mid3);
   return mid3;
+};
+
+async function save_url(url) {
+  var uid = muid(6);
+  var res6 = await vebview.fs.write_file('store/urls/' + uid, url);
+    if ( res6 == false ) {
+      console.log('short_URL file writing error : ' + uid);
+    };
+  add_new_url_card(uid);
+  return;
+};
+
+async function open_url(uid) {
+  console.log('clicked to open URL : ' + uid);
+  console.log('open_url with UID : ' + uid);
+  var url = await vebview.fs.read_file('store/urls/' + uid);
+  if (url === false) {
+    console.log('failed to read URL file : ' + uid);
+    return;
+  };
+  vebview.os.open_in_browser(url);
+  return;
 };

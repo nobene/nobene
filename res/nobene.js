@@ -454,6 +454,16 @@ async function export_board() {
     console.log('actual file writing error in export : ' + nm + '-' + dstr);
   };
   act2 = '';
+  var res5 = await vebview.fs.create_dir('store/' + dstr);
+  var cards = await vebview.fs.read_dir('store/cards');
+//  console.log('cards[] : ', cards);
+  cards.forEach(copy_card);
+  async function copy_card(cr) {
+    var res6 = await vebview.fs.copy_file('store/cards/' + cr, 'store/' + dstr+ '/' + cr);
+    if ( res6 == false ) {
+      console.log('card file writing error in export to dated dir : ' + dstr + '/' + cr);
+    };
+  };
   console.log('exported board : ' + nm + ' : OK');
   nm = '';
   document.getElementById('in').value = '';

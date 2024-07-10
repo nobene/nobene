@@ -12,7 +12,7 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-function muid(tokenLen) {
+async function muid(tokenLen) {
   if (tokenLen == null) { tokenLen = 19; }
   var text = "";
   const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ023456789";
@@ -56,7 +56,7 @@ async function new_card(col) {
   var omo = document.createAttribute('onmouseout');
   var odbl = document.createAttribute('ondblclick');
   var elem = document.createElement('div');
-  var mid = muid(19);
+  var mid = await muid(19);
   elem.innerHTML = '*';
   elem.setAttributeNode(cl);
   cl.value = '';
@@ -143,7 +143,7 @@ async function clone_card(mid) {
   elem.setAttributeNode(cedit);
   elem.setAttributeNode(cl);
   cedit.value = 'true';
-  var midnew = muid(19);
+  var midnew = await muid(19);
   id.value = midnew;
   elem.setAttributeNode(id);
   omo.value = 'save("' + midnew + '");'
@@ -180,7 +180,7 @@ async function add_new_url_card(uid) {
   var omo = document.createAttribute('onmouseout');
   var odbl = document.createAttribute('ondblclick');
   var elem = document.createElement('div');
-  var mid = muid(19);
+  var mid = await muid(19);
   elem.setAttributeNode(cl);
   cl.value = '';
   elem.setAttributeNode(cedit);
@@ -590,7 +590,7 @@ async function add_emoset() {
   elem.setAttributeNode(cl);
   cl.value = '';
   cedit.value = 'true';
-  var mid3 = '000' + muid(16);
+  var mid3 = '000' + await muid(16);
   id.value = mid3;
   elem.setAttributeNode(id);
   omo.value = 'save("' + mid3 + '");'

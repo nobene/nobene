@@ -76,3 +76,9 @@ Licenses.
  res/FiraCodeNerdFont-Medium.woff file licensed by SIL OFL v1.1 License, See ./FiraCode.LICENSE
  res/FontAwesome6Free-Solid.woff file licensed by SIL OFL v1.1 License, See ./FontAwesome.LICENSE
 
+Backups.
+ For backing up your works just copy entire directory "store" with all of it's content
+ somewhere outside of "nobene" directory tree.
+ "store0" directory exists for having "help" board only starting pack,
+ just in case you some day might discard  all your prior work and start over again from scratch.
+ In such case delete all content inside "store" and copy all from "store0" to "store".

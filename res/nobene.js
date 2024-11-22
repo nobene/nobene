@@ -12,15 +12,11 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-async function muid(tokenLen) {
-  if (tokenLen == null) { tokenLen = 19; }
-  var text = "";
-  const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ023456789";
-  for (var i = 0; i < tokenLen; ++i) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  };
-  return text;
-};
+//async function muid(tokenLen) {
+//  if (tokenLen == null) { tokenLen = 19; }
+//  
+//  return text;
+//};
 
 async function save(name) {
   var text = document.getElementById(name).innerText;
@@ -34,7 +30,6 @@ async function save(name) {
   }
   document.getElementById(name).innerHTML = text;
   console.log("\n name: " + name + ": " + text);
-// console.log(mid);
   var fname = 'store/cards/' + name;
   var res = await vebview.fs.write_file(fname, text);
   if ( res == false ) {
@@ -56,7 +51,11 @@ async function new_card(col) {
   var omo = document.createAttribute('onmouseout');
   var odbl = document.createAttribute('ondblclick');
   var elem = document.createElement('div');
-  var mid = await muid(19);
+  var mid = "";
+  const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ023456789";
+  for (var i = 0; i < 19; ++i) {
+    mid += possible.charAt(Math.floor(Math.random() * possible.length));
+  };
   elem.innerHTML = '*';
   elem.setAttributeNode(cl);
   cl.value = '';
@@ -143,7 +142,11 @@ async function clone_card(mid) {
   elem.setAttributeNode(cedit);
   elem.setAttributeNode(cl);
   cedit.value = 'true';
-  var midnew = await muid(19);
+  var midnew = "";
+  const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ023456789";
+  for (var i = 0; i < 19; ++i) {
+    midnew += possible.charAt(Math.floor(Math.random() * possible.length));
+  };
   id.value = midnew;
   elem.setAttributeNode(id);
   omo.value = 'save("' + midnew + '");'
@@ -180,7 +183,11 @@ async function add_new_url_card(uid) {
   var omo = document.createAttribute('onmouseout');
   var odbl = document.createAttribute('ondblclick');
   var elem = document.createElement('div');
-  var mid = await muid(19);
+  var mid = "";
+  const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ023456789";
+  for (var i = 0; i < 19; ++i) {
+    mid += possible.charAt(Math.floor(Math.random() * possible.length));
+  };
   elem.setAttributeNode(cl);
   cl.value = '';
   elem.setAttributeNode(cedit);
@@ -434,6 +441,8 @@ async function export_board() {
   };
   act2 = act2.substr(0 , act2.length - 1);
   console.log('Actual to export : ' + act2);
+//  var nm1 = nm.trimStart();
+//  var nm2 = nm1.trimEnd();
   var res2 = await vebview.fs.copy_file('store/boards/' + nm, 'store/boards/' + nm + '-bup');
   if ( res2 == false ) {
     console.log('actual backup  fs writing error in export : ' + nm);
@@ -472,7 +481,7 @@ async function export_board() {
 
 async function readkb(val) {
   console.log('read from CLI : ' + val);
-  if ( val === 'quit' || val === '---' ) {
+  if ( val === 'q' || val === 'quit' ) {
     var r = await vebview.window.close();
     return;
   };
@@ -494,6 +503,10 @@ async function readkb(val) {
     return;
    };
   if ( val[0] == '+' && val.length > 2 ) {
+    if (/\s/.test(val)) {
+      console.log('board name can not contain space(s)');
+      return;
+    };
     new_board(val.substring(1,));
     console.log('added new board with name : ' + val.substring(1,));
     return;
@@ -590,7 +603,12 @@ async function add_emoset() {
   elem.setAttributeNode(cl);
   cl.value = '';
   cedit.value = 'true';
-  var mid3 = '000' + await muid(16);
+  var mid3 = "";
+  const possible = "ABCDEFGHIJKLMNPQRSTUVWXYZ023456789";
+  for (var i = 0; i < 16; ++i) {
+    mid3 += possible.charAt(Math.floor(Math.random() * possible.length));
+  };
+  mid3 = '000' + mid3;
   id.value = mid3;
   elem.setAttributeNode(id);
   omo.value = 'save("' + mid3 + '");'

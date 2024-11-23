@@ -39,8 +39,9 @@
     <div id='menu'>
     </div>
     <input id='in' />
-    <button id='enter' type='button' onclick='readkb(document.getElementById("in").value);'><==</button>
-    <button id='boards' type='button' onclick='show_all_boards();'>===</button>
+    <button id='save' type='button' onclick='export1();'>&mapstodown;</button>
+    <button id='enter' type='button' onclick='readkb(document.getElementById("in").value);'>✔</button>
+    <button id='boards' type='button' onclick='show_all_boards();'>&Congruent;</button>
     </div>
 </div>
 <script src='dragula.js'></script>
@@ -50,7 +51,7 @@
 <script type='text/javascript'>
     vebview.messenger.new("example_port");
     vebview.messenger.add_event_listener("example_port",(e)=>{console.log(e);});
-    vebview.window.set_icon("paw.png")
+    vebview.window.set_icon("")
     import_board("help");
 </script>
 </body>

@@ -42,7 +42,7 @@ mark {
 
 body, input, button {
 /*  font-family: Georgia, Helvetica; */
-  font-size: 32px !important;
+  font-size: 36px !important;
   color: #111 !important;
 }
 
@@ -80,7 +80,7 @@ pre {
 
 pre code {
   color: darkblue;
-  font-size: 32px;
+  font-size: 36px;
   line-height: 1.3;
 }
 
@@ -116,7 +116,7 @@ sub {
   display: block;
   text-align: right;
   margin-top: -10px;
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
 }
 
@@ -142,7 +142,7 @@ input {
   margin: 5px 0;
   display: block;
   width: 100%;
-  font-size: 38px !important;
+  font-size: 36px !important;
 }
 
 button {
@@ -225,7 +225,7 @@ button:hover {
 textarea {
   background-color: transparent;
   color : transparent;
-  font-size: 38px;
+  font-size: 36px;
   min-width: 850px;
   height: 250px;
   border: 2px dotted #34626c;
@@ -291,9 +291,9 @@ textarea {
 #in {
   height: 56px !important;
   min-width: 15% !important;
-  max-width: 26% !important;
+  max-width: 25% !important;
   position: absolute;
-  left: 62%;
+  left: 62.5%;
   top: 86%;
   color: #78866b !important;
 }
@@ -313,7 +313,7 @@ textarea {
 
 #boards {
   position: absolute;
-  left: 93%;
+  left: 92%;
   top: 86%;
   font-size: 36px;
 }
@@ -325,7 +325,12 @@ textarea {
   font-size: 36px;
 }
 
-
+#save {
+  position: absolute;
+  left: 58%;
+  top: 86%;
+  font-size: 36px;
+}
 
 div.yell {
   background-color: #cec3af !important;

@@ -408,6 +408,11 @@ async function import_board(name) {
   return;
 };
 
+async function export1() {
+  console.log('clicked [check] on-screen button : exporting current board...');
+  export_board();
+  return;
+}
 async function export_board() {
   var act2 = '';
   var nm = await vebview.window.get_title();

@@ -502,6 +502,30 @@ async function readkb(val) {
     export_board();
     return;
   };
+  if ( val === '=1' ) {
+    const e1 = document.querySelector('.wrapper');
+    e1.style.fontSize = '26px';
+    document.getElementById('in').value = '';
+    return;
+  };
+  if ( val === '=2' ) {
+    const e2 = document.querySelector('.wrapper');
+    e2.style.fontSize = '30px';
+    document.getElementById('in').value = '';
+    return;
+  };
+  if ( val === '=3' ) {
+    const e3 = document.querySelector('.wrapper');
+    e3.style.fontSize = '36px';
+    document.getElementById('in').value = '';
+    return;
+  };
+  if ( val === '=4' ) {
+    const e4 = document.querySelector('.wrapper');
+    e4.style.fontSize = '42px';
+    document.getElementById('in').value = '';
+    return;
+  };
   if ( val[0] == '+' && val[1] == '+' && val.length == 21 ) {
     clone_card(val.substring(2,));
     console.log('added existing card with id : ' + val.substring(2,));

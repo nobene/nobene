@@ -26,7 +26,9 @@ Features.
   On startup it loads "help" board with usage information.
 
   You can create new board with +BoardName typed in command input field.
-  Instead of [ENTER] click on <== button.
+  Instead of pressing [ENTER] on keyboard, click on <== button.
+
+  You can change board's name with =BoardName typed in command input field.
 
   You can load another board with >BoardName.
 
@@ -58,7 +60,7 @@ Features.
 
   You can quit app with quit or q.
 
-  You can adjust font size of cards with inputs =1 =2 =3 =4 in input field.
+  You can adjust font size of cards with inputs =0 =1 =2 =3 =4 in input field.
 
   Nobene app has Vebview.JS's context menu with handy copy and paste items.
 

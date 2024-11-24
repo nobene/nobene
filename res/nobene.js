@@ -12,12 +12,6 @@
 //   See the License for the specific language governing permissions and
 //   limitations under the License.
 
-//async function muid(tokenLen) {
-//  if (tokenLen == null) { tokenLen = 19; }
-//  
-//  return text;
-//};
-
 async function save(name) {
   var text = document.getElementById(name).innerText;
   if ( text.includes('?????') ) {
@@ -57,6 +51,10 @@ async function new_card(col) {
     mid += possible.charAt(Math.floor(Math.random() * possible.length));
   };
   elem.innerHTML = '*';
+  if ( col === '0' ) {
+    elem.innerHTML = await vebview.window.get_title();
+    col = '3';
+  };
   elem.setAttributeNode(cl);
   cl.value = '';
   elem.setAttributeNode(cedit);
@@ -273,6 +271,7 @@ async function new_board(name) {
   while (col5.hasChildNodes()) {
     col5.removeChild(col5.firstChild);
   };
+  vebview.window.set_title(name);
   console.log('New Board created : ' + name);
   var cid = new_card('1');
   var act = '';
@@ -297,7 +296,7 @@ async function new_board(name) {
   act += cid + '-';
   cid = new_card('3');
   act += cid + '-';
-  cid = new_card('3');
+  cid = new_card('0');
   act += cid + '/';
   cid = new_card('4');
   act += cid + '-';
@@ -315,7 +314,6 @@ async function new_board(name) {
   act += cid + '-';
   var emoid = add_emoset();
   act += emoid;
-  vebview.window.set_title(name);
   var factual = 'store/boards/' + name;
   var resu = await vebview.fs.write_file(factual, act);
   if ( resu == false ) {
@@ -502,6 +500,12 @@ async function readkb(val) {
     export_board();
     return;
   };
+  if ( val === '=0' ) {
+    const e0 = document.querySelector('.wrapper');
+    e0.style.fontSize = '21px';
+    document.getElementById('in').value = '';
+    return;
+  };
   if ( val === '=1' ) {
     const e1 = document.querySelector('.wrapper');
     e1.style.fontSize = '26px';
@@ -533,11 +537,21 @@ async function readkb(val) {
    };
   if ( val[0] == '+' && val.length > 2 ) {
     if (/\s/.test(val)) {
-      console.log('board name can not contain space(s)');
+      console.log('new board name can not contain space(s)');
       return;
     };
     new_board(val.substring(1,));
     console.log('added new board with name : ' + val.substring(1,));
+    return;
+   };
+  if ( val[0] == '=' && val.length > 2 ) {
+    if (/\s/.test(val)) {
+      console.log('newly changed board name can not contain space(s)');
+      return;
+    };
+    await vebview.window.set_title(val.substring(1,));
+    export_board();
+    console.log('changed board name to : ' + val.substring(1,));
     return;
    };
   if ( val[0] == '#' ) {
@@ -671,4 +685,8 @@ async function open_url(uid) {
   };
   vebview.os.open_in_browser(url);
   return;
+};
+
+async function change_name(nm4) {
+  
 };

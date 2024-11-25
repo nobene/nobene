@@ -18,7 +18,10 @@ Installation.
   5) Copy "vebview" binary from compiled Vebview.JS project to nobene main directory
    and rename it to "nobene".
 
-  6) $ ./nobene
+  6) Edit in app.config screen resolution to fit your actual screen resolution numbers.
+     Later you can adjust default font size value to your taste in nobene.css:45,13 .
+
+  7) $ ./nobene
 
 Features.
   Nobene is a kanban board.

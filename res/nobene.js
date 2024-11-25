@@ -216,6 +216,10 @@ async function hide_menu() {
 };
 
 async function show_all_boards() {
+  if (document.getElementById('menu').innerHTML != '') {
+    hide_menu();
+    return;
+  };
   var boards = await vebview.fs.read_dir('store/boards');
   var cur = await vebview.window.get_title();
   console.log('current: ' + cur);

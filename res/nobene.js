@@ -502,31 +502,43 @@ async function readkb(val) {
   };
   if ( val === '=0' ) {
     const e0 = document.querySelector('.wrapper');
-    e0.style.fontSize = '21px';
+    e0.style.fontSize = '20px';
     document.getElementById('in').value = '';
     return;
   };
   if ( val === '=1' ) {
     const e1 = document.querySelector('.wrapper');
-    e1.style.fontSize = '26px';
+    e1.style.fontSize = '23px';
     document.getElementById('in').value = '';
     return;
   };
   if ( val === '=2' ) {
     const e2 = document.querySelector('.wrapper');
-    e2.style.fontSize = '30px';
+    e2.style.fontSize = '26px';
     document.getElementById('in').value = '';
     return;
   };
   if ( val === '=3' ) {
     const e3 = document.querySelector('.wrapper');
-    e3.style.fontSize = '36px';
+    e3.style.fontSize = '32px';
     document.getElementById('in').value = '';
     return;
   };
   if ( val === '=4' ) {
     const e4 = document.querySelector('.wrapper');
-    e4.style.fontSize = '42px';
+    e4.style.fontSize = '38px';
+    document.getElementById('in').value = '';
+    return;
+  };
+  if ( val === '=5' ) {
+    const e5 = document.querySelector('.wrapper');
+    e5.style.fontSize = '42px';
+    document.getElementById('in').value = '';
+    return;
+  };
+  if ( val === '=6' ) {
+    const e6 = document.querySelector('.wrapper');
+    e6.style.fontSize = '46px';
     document.getElementById('in').value = '';
     return;
   };

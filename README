@@ -26,9 +26,10 @@ Features.
   On startup it loads "help" board with usage information.
 
   You can create new board with +BoardName typed in command input field.
-  Instead of pressing [ENTER] on keyboard, click on <== button.
 
-  You can change board's name with =BoardName typed in command input field.
+  Instead of pressing [ENTER] on keyboard, click on <== button after each typed command.
+
+  You can clone board  with =BoardNewName typed in command input field.
 
   You can load another board with >BoardName.
 
@@ -60,7 +61,7 @@ Features.
 
   You can quit app with quit or q.
 
-  You can adjust font size of cards with inputs =0 =1 =2 =3 =4 in input field.
+  You can adjust font size of cards with inputs =0 =1 =2 =3 =4 =5 =6 in input field.
 
   Nobene app has Vebview.JS's context menu with handy copy and paste items.
 
@@ -70,6 +71,11 @@ Features.
   *-bup boards are not shown in the list, but you can load them with >BoardName-bup .
   If you save BoardName-bup, it creates BoardName-bup-bup :)
   So, you can load backup of backup and work on it too.
+
+  Note: Nobene does not allow spaces in board name ( it's a feature ),
+  max. length of board name is 32 symbols.
+  Neither accepted board names with dashes ( it's a bug perhaps ).
+  Underscores and pluses are aloowed.
 
 Licenses.
 

@@ -66,7 +66,8 @@ Features.
 
   You can adjust font size of cards with inputs =0 =1 =2 =3 =4 =5 =6 in input field.
 
-  Nobene app has Vebview.JS's context menu with handy copy and paste items.
+  Nobene app has Vebview.JS's context menu with handy copy and paste items plus
+  you can insert emojies from it, if you installed on your OS "noto-fonts-emoji" package.
 
   And of course you can drag and drop cards to new position on board.
 

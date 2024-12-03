@@ -350,6 +350,7 @@ async function import_board(name) {
     console.log('failed to import board : ' + name);
     return;
   };
+  hide_menu();
   const col1 = document.getElementById('1');
   while (col1.hasChildNodes()) {
     col1.removeChild(col1.firstChild);
@@ -657,7 +658,7 @@ async function add_emoset() {
   var omo = document.createAttribute('onmouseout');
   var odbl = document.createAttribute('ondblclick');
   var elem = document.createElement('div');
-  elem.innerText = '🃏  ✔ ⚫ ♻️  ☀️  🌐️  ☘  ☎ ⚒  ☢  ☯ ☸ ✖  ◼  ⚑ ☂ ★ ♬  ⚓  ✪  ⁂  ♛  ☰  ◆  ∯  ♚  ♞  ♥   🐵️  ✡️  ☀️   ⚖';
+  elem.innerText = '______________________';
   elem.setAttributeNode(cedit);
   elem.setAttributeNode(cl);
   cl.value = '';
